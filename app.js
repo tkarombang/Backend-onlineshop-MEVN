@@ -1,13 +1,20 @@
 const express = require('express')
 const app = express()
+const path = require('path')
 const PORT = 8000
 const db = require('./app/models/database')
+const cors = require('cors')
 
 
 //MIDDLEWARE  
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(cors({
+  origin: 'http://localhost:5173'
+}))
 
+//ROUTE IMAGE
+app.use('/img', express.static(path.join(__dirname, './public/img')))
 
 //KONEKSI DATABASE
 db.connectDB()

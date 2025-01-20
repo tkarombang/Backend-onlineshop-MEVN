@@ -9,3 +9,14 @@ exports.getAllProduct = async (req, res) => {
     res.status(500).send({ message: error.message || 'SOME ERROR OCCURED WHILE RETRIEVING PRODUCTS.', })
   }
 }
+
+exports.getOneProduct = async (req, res) => {
+  try {
+    const products = await Product.findOne({
+      code: req.params.id
+    });
+    res.status(200).json(products)
+  } catch (error) {
+    res.status(500).send({ message: error.message || 'SOME ERROR OCCURED WHILE RETRIEVING PRODUCTS.' })
+  }
+}
