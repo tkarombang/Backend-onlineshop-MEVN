@@ -72,7 +72,7 @@ exports.createOrder = async (req, res) => {
 
 exports.removeFromOrder = async (req, res) => {
   const id = Number(req.params.id)
-  const productCode = String(req.params.product)
+  const productCode = String(req.params.codeProduct)
 
   try {
     const result = await Order.updateOne(
