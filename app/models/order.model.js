@@ -3,12 +3,15 @@ module.exports = mongoose => {
   const schema = mongoose.Schema({
     user_id: {
       type: Number,
-      require: true
+      required: true
     },
-    cart_items: {
-      type: [String],
-      require: true
-    }
+    cart_items: [
+      {
+        code: { type: String, required: true },
+        quantity: { type: Number, required: true, default: 1 }
+      }
+    ],
+    products: { type: Array, default: [] },
   }, { timestamps: true })
 
 
