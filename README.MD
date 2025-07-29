@@ -66,8 +66,7 @@ This project is an online store application built using the MEVN stack (MongoDB,
 
    ```bash
    # Run backend
-   cd server
-   npm run dev
+   node app.js
 
    # Run frontend
    cd ../client
